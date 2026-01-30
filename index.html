@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفرقدين لخدمات الحجاج - تسجيل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --main-gold: #c49b3b;
+            --dark-green: #0a3d2e;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--dark-green);
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo-text { font-size: 24px; font-weight: 900; color: var(--dark-green); margin: 0; }
+        .sub-text { font-size: 14px; color: var(--main-gold); font-weight: 600; }
+
+        .content { padding: 25px; }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark-green);
+            margin: 15px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--main-gold);
+            font-size: 15px;
+            pointer-events: none;
+        }
+
+        input, select {
+            width: 100%;
+            height: 45px;
+            padding: 0 40px 0 15px;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            font-family: 'Cairo';
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: 0.3s;
+            background-color: #fff;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--dark-green);
+            outline: none;
+            box-shadow: 0 0 5px rgba(10, 61, 46, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        .btn-send {
+            width: 100%;
+            height: 52px;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-send:hover { background: #1eb956; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <p class="logo-text">الفرقدين لخدمات الحجاج</p>
+        <p class="sub-text">تسجيل بيانات الحج لموسم 1447هـ</p>
+    </div>
+
+    <div class="content">
+        <form id="hajjForm">
+            <div class="section-title"><i class="fas fa-user"></i> البيانات الأساسية</div>
+            
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user-tag"></i>
+                    <input type="text" id="name" placeholder="أدخل الاسم الثلاثي" required>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="form-group">
+                    <label>رقم الجوال</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="05xxxxxxxx" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="example@mail.com">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title"><i class="fas fa-map-marker-alt"></i> العنوان والموقع</div>
+
+            <div class="grid">
+                <div class="form-group">
+                    <label>المنطقة</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map"></i>
+                        <select id="region">
+                            <option value="">اختر المنطقة</option>
+                            <option value="الوسطى">المنطقة الوسطى</option>
+                            <option value="الغربية">المنطقة الغربية</option>
+                            <option value="الشرقية">المنطقة الشرقية</option>
+                            <option value="الشمالية">المنطقة الشمالية</option>
+                            <option value="الجنوبية">المنطقة الجنوبية</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>المدينة</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-city"></i>
+                        <input type="text" id="city" placeholder="مثال: الدمام">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title"><i class="fas fa-kaaba"></i> تفاصيل رحلة الحج</div>
+
+            <div class="grid">
+                <div class="form-group">
+                    <label>نوع الباقة</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-star"></i>
+                        <select id="package">
+                            <option value="VIP المميزة">باقة VIP المميزة</option>
+                            <option value="الضيافة">باقة الضيافة</option>
+                            <option value="الاقتصادية">الباقة الاقتصادية</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>عدد المرافقين</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-users"></i>
+                        <input type="number" id="count" placeholder="اكتب العدد (اختياري)">
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn-send" onclick="sendToWhatsapp()">
+                <i class="fab fa-whatsapp"></i> إرسال البيانات للفرقدين
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function sendToWhatsapp() {
+        const d = {
+            name: document.getElementById('name').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            email: document.getElementById('email').value.trim() || "لم يذكر",
+            region: document.getElementById('region').value || "غير محدد",
+            city: document.getElementById('city').value.trim() || "غير محدد",
+            pkg: document.getElementById('package').value,
+            count: document.getElementById('count').value.trim() || "لا يوجد"
+        };
+
+        // التحقق فقط من الحقول الإجبارية الحقيقية (الاسم والجوال)
+        if(!d.name || !d.phone) {
+            alert("يرجى إدخال الاسم ورقم الجوال على الأقل.");
+            return;
+        }
+
+        const whatsappNumber = "966541059335";
+        const message = 
+            `*🕋 طلب تسجيل حج 🕋*%0A` +
+            `*━━━━━━━━━━━━━━━━━━*%0A` +
+            `*👤 العميل:* ${d.name}%0A` +
+            `*📱 الجوال:* ${d.phone}%0A` +
+            `*📧 الإيميل:* ${d.email}%0A` +
+            `*━━━━━━━━━━━━━━━━━━*%0A` +
+            `*📍 الموقع:*%0A` +
+            `*▫️ المنطقة:* ${d.region}%0A` +
+            `*▫️ المدينة:* ${d.city}%0A` +
+            `*━━━━━━━━━━━━━━━━━━*%0A` +
+            `*📋 تفاصيل الحجز:*%0A` +
+            `*▫️ الباقة:* ${d.pkg}%0A` +
+            `*▫️ عدد المرافقين:* ${d.count}%0A` +
+            `*━━━━━━━━━━━━━━━━━━*`;
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
